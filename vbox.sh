@@ -2,6 +2,7 @@ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-
 wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install virtualbox-6.0
+sudo rm /etc/dkms/sign-kernel-objects.conf
 echo "POST_BUILD=../../../../../../root/sign-kernel.sh" | sudo tee /etc/dkms/sign-kernel-objects.conf
 sudo cp ./setup/sign-kernel.sh /root/sign-kernel.sh
 sudo chmod +x /root/sign-kernel.sh
