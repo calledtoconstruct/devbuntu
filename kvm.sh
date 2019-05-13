@@ -1,4 +1,4 @@
-sudo apt install libvirt-clients libvirt-daemon-system qemu-kvm
+sudo apt install -y libvirt-clients libvirt-daemon-system qemu-kvm
 sudo systemctl enable libvirtd.service
 sudo systemctl start libvirtd.service
 sudo systemctl status libvirtd.service
