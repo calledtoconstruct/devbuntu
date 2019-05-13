@@ -4,6 +4,6 @@ sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc)
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt update
-sudo apt install code nodejs npm cabal-install
+sudo apt install -y code nodejs npm cabal-install
 sudo npm i -g npm
 chmod +x ./setup/*.sh
