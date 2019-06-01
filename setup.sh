@@ -5,3 +5,5 @@ sudo apt update
 sudo apt -y upgrade
 sudo apt -y install code nodejs npm cabal-install
 sudo npm i -g npm
+git config --global user.email joe@calledtoconstruct.net
+git config --global user.name Joseph Woolley
