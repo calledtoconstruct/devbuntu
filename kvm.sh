@@ -6,4 +6,4 @@ sudo curl -LO https://storage.googleapis.com/minikube/releases/latest/docker-mac
 minikube config set vm-driver kvm2
 minikube config set disk-size "8g"
 sudo usermod -a -G libvirt $(whoami)
-newgrp libvirt
+#newgrp libvirt
