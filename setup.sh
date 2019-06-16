@@ -1,9 +1,11 @@
-sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-sudo apt update
-sudo apt -y upgrade
-sudo apt -y install code nodejs npm cabal-install
-sudo npm i -g npm
 git config --global user.email joe@calledtoconstruct.net
 git config --global user.name Joseph Woolley
+sudo rsync -avx /home/ /media/ubuntu/data
+sudo umount /media/ubuntu/data
+sudo mount $(sudo fdisk --list | grep "52G 83 Linux" | cut -c1-9) /home
+cd /home/ubuntu
+sudo minikube config set vm-driver kvm2
+sudo minikube config set disk-size "8g"
+sudo usermod -a -G libvirt $(whoami)
+eval $(sudo minikube docker-env)
+gcloud init

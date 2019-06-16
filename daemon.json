@@ -1,0 +1,4 @@
+{
+    "storage-driver": "vfs",
+    "graph": "/home/ubuntu/docker-images"
+}
