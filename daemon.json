@@ -1,4 +1,7 @@
 {
     "storage-driver": "vfs",
-    "graph": "/home/ubuntu/docker-images"
+    "graph": "/home/ubuntu/docker-images",
+    "max-concurrent-uploads": 1,
+    "max-concurrent-downloads": 1
+
 }
