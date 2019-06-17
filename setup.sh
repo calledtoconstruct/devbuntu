@@ -5,7 +5,9 @@ sudo umount /media/ubuntu/data
 sudo mount $(sudo fdisk --list | grep "52G 83 Linux" | cut -c1-9) /home
 cd /home/ubuntu
 sudo minikube config set vm-driver kvm2
-sudo minikube config set disk-size "8g"
+sudo minikube config set disk-size "20g"
+sudo minikube config set memory "4096"
+sudo minikube config set cpus "4"
 sudo usermod -a -G libvirt $(whoami)
-eval $(sudo minikube docker-env)
-gcloud init
+#eval $(sudo minikube docker-env)
+#gcloud init
