@@ -1,5 +1,5 @@
 {
-    "storage-driver": "vfs",
+    "storage-driver": "overlay2",
     "graph": "/home/ubuntu/docker-images",
     "max-concurrent-uploads": 1,
     "max-concurrent-downloads": 1

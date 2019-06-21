@@ -11,5 +11,10 @@ sudo minikube config set cpus "4"
 sudo usermod -a -G libvirt $(whoami)
 #eval $(sudo minikube docker-env)
 #gcloud init
-#sudo kubectl apply -f kube-registry.yaml
-#sudo kubectl port-forward --namespace kube-system $(sudo kubectl get po -n kube-system | grep kube-registry-v0 | \awk '{print $1;}') 5000:5000
+#sudo minikube kubectl apply -f kube-registry.yaml
+#sudo minikube kubectl port-forward --namespace kube-system $(sudo kubectl get po -n kube-system | grep kube-registry-v0 | \awk '{print $1;}') 5000:5000
+#sudo docker --host="tcp://192.168.39.106:2376" --tlsverify="1" --tlscacert="/home/ubuntu/.minikube/certs/ca.pem" --tlscert="/home/ubuntu/.minikube/certs/cert.pem" --tlskey="/home/ubuntu/.minikube/certs/key.pem" images
+#sudo docker --host="tcp://192.168.39.106:2376" --tlsverify="1" --tlscacert="/home/ubuntu/.minikube/certs/ca.pem" --tlscert="/home/ubuntu/.minikube/certs/cert.pem" --tlskey="/home/ubuntu/.minikube/certs/key.pem" build .
+#sudo docker --host="tcp://192.168.39.106:2376" --tlsverify="1" --tlscacert="/home/ubuntu/.minikube/certs/ca.pem" --tlscert="/home/ubuntu/.minikube/certs/cert.pem" --tlskey="/home/ubuntu/.minikube/certs/key.pem" tag fb9db08c27aa item-api:v1.0.1
+#sudo minikube kubectl create deployment item-api -- --image="item-api:v1.0.1"
+#sudo minikube kubectl expose deployment item-api -- --type=LoadBalancer --port=8082
