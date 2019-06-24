@@ -23,10 +23,12 @@ These scripts are intended to be used from a [Live CD](https://help.ubuntu.com/c
 
 - Boot a machine into Ubuntu (Installed to Hard Drive or Via Live CD, USB, or Flash Drive)
 - Copy or Download Ubuntu Installation ISO Image
-- Install and Run Cubic, Select the Installation ISO from the previous step
+- Install and Run Cubic
 ```
 sudo apt -y install cubic
+cubic
 ```
+- Select the Installation ISO from the previous step
 - Once Cubic presents the chroot console:
     1. Install git
 ```
@@ -69,10 +71,13 @@ sudo apt -y install git
 git clone https://github.com/calledtoconstruct/setup
 chmod +x ./setup/*.sh
 ```
-- Execute Clean-up and Setup Scripts
+- Execute the Setup Script
 ```
-./setup/clean-up.sh
 ./setup/setup.sh
+```
+- Change the current working folder to the new $HOME (visually, you won't see a change)
+```
+cd /home/ubuntu
 ```
 - Launch VS Code and Build Something Awesome
 ```
@@ -88,18 +93,23 @@ code
 
 ## Steps
 
-- Move /home to USB Thumbdrive or Flash Card (as RAM Drive is likely insufficient)
-```
-./setup/move-home.sh
-```
-- Install MiniKube and KVM Virtualization Software
-```
-./setup/minikube.sh
-./setup/kvm.sh
-```
 - Start Kubernetes Cluster via MiniKube
 ```
 minikube start
+```
+- Setup Aliases for Docker (so Docker connects to the repository within the minikube cluster)
+```
+alias dockerenv="eval \$(sudo minikube docker-env)"
+alias dockerdo="sudo docker --host=\"\$DOCKER_HOST\" --tlsverify=1 --tlscacert=\"\$DOCKER_CERT_PATH/ca.pem\" --tlscert=\"\$DOCKER_CERT_PATH/cert.pem\" --tlskey=\"\$DOCKER_CERT_PATH/key.pem\""
+dockerenv
+```
+- (From within a project with a Dockerfile) Run Docker Build
+```
+dockerdo build .
+```
+- Verify your Docker images built correctly
+```
+dockerdo images
 ```
 - Deploy Your Awesome Application Containers
 
