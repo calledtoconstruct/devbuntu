@@ -6,18 +6,12 @@ This repository contains a set of shell scripts that can be used on a Linux (Deb
 
 These scripts are intended to be used from a [Live CD](https://help.ubuntu.com/community/LiveCD), [Live USB Thumbdrive or Flash Card](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu#0).  When booting a machine from a Live CD, USB, or Flash drive, the operating system runs from a RAM Drive.  Therefore, all changes are forgotten / lost after shutdown or restart.
 
-# NOTICE
-
-The strategy for using these scripts has changed!  The below information is out of date and will be revised when things settle down a bit.  The quick summary is this: Instead of booting to the standard Ubuntu Live, I am now using Cubic to build a custom Ubuntu Live boot device.  Once the machine has booted, the setup script configures settings that are not retained by the Cubic build.
-
-
-
-
-
-# Create a Live Boot Drive
+# Create a Custom Live Boot Drive
 
 ## Prerequisites
 
+- Ubuntu Install CD, USB, or Flash Drive (in order to run Cubic)
+- [Cubic](https://launchpad.net/cubic)
 - Blank Writable CD (optional)
 - USB Thumbdrive or Flash Card (32G or larger)
 - Ubuntu Desktop or Server Installation Image (ISO format)
@@ -27,16 +21,37 @@ The strategy for using these scripts has changed!  The below information is out 
 
 ## Steps
 
-- Burn Ubuntu Installation Image to CD, USB Drive or Flash Drive
+- Boot a machine into Ubuntu (Installed to Hard Drive or Via Live CD, USB, or Flash Drive)
+- Copy or Download Ubuntu Installation ISO Image
+- Install and Run Cubic, Select the Installation ISO from the previous step
+```
+sudo apt -y install cubic
+```
+- Once Cubic presents the chroot console:
+    1. Install git
+```
+sudo apt -y install git
+```
+    2. Clone this repository
+```
+git clone https://github.com/calledtoconstruct/setup
+chmod +x ./setup/*.sh
+```
+    3. Execute
+```
+./setup/dev-iso.sh
+```
+- Complete the Cubic Process which will produce a new ISO Image 
+- Burn the Custom Installation ISO Image to CD, USB Drive or Flash Drive
 - Repartition the Install Partition to 6G (USB Drive or Flash Drive only)
 - Create "data" Partition in Remaining Space (USB Drive or Flash Drive only)
-- Reboot into Live Session using BIOS Boot Device Selection
+- Reboot into Custom Live Session using BIOS Boot Device Selection
 
 # Development Environment
 
 ## Prerequisites
 
-- Live CD, USB Thumbdrive or Flash Card that Boots to a Live Session (See above)
+- Custom Live CD, USB Thumbdrive or Flash Card that Boots to a Live Session (See above)
 - USB Thumbdrive or Flash Card with 26G or more Free Space
 - Machine with 8G of RAM or more, CD Drive, USB Port and/or Flash Drive
 - Internet Connection
