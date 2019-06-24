@@ -113,6 +113,18 @@ dockerdo images
 ```
 - Deploy Your Awesome Application Containers
 
+# Documentation Road-map
+
+## Service Mesh
+
+- Document how to deploy LinkerD into the cluster
+- Document how to inject LinkerD into the containers
+- Other service mesh offerings?
+
+## Cleaning Up
+
+- Document clean-up process
+
 # Collaboration
 
 If you like what you see here and would like to collaborate on this project, feel free to tweak the scripts and submit pull requests.  If you have ideas or questions, post them on GitHub.
