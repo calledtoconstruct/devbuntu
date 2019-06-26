@@ -15,8 +15,11 @@ alias dockdo="sudo docker --host=\"\$DOCKER_HOST\" --tlsverify=1 --tlscacert=\"\
 #gcloud init
 #sudo minikube kubectl apply -f kube-registry.yaml
 #sudo minikube kubectl port-forward --namespace kube-system $(sudo kubectl get po -n kube-system | grep kube-registry-v0 | \awk '{print $1;}') 5000:5000
+#Talk to Docker running on Cluster
 #sudo docker --host="tcp://192.168.39.106:2376" --tlsverify="1" --tlscacert="/home/ubuntu/.minikube/certs/ca.pem" --tlscert="/home/ubuntu/.minikube/certs/cert.pem" --tlskey="/home/ubuntu/.minikube/certs/key.pem" images
 #sudo docker --host="tcp://192.168.39.106:2376" --tlsverify="1" --tlscacert="/home/ubuntu/.minikube/certs/ca.pem" --tlscert="/home/ubuntu/.minikube/certs/cert.pem" --tlskey="/home/ubuntu/.minikube/certs/key.pem" build .
 #sudo docker --host="tcp://192.168.39.106:2376" --tlsverify="1" --tlscacert="/home/ubuntu/.minikube/certs/ca.pem" --tlscert="/home/ubuntu/.minikube/certs/cert.pem" --tlskey="/home/ubuntu/.minikube/certs/key.pem" tag fb9db08c27aa item-api:v1.0.1
 #sudo minikube kubectl create deployment item-api -- --image="item-api:v1.0.1"
 #sudo minikube kubectl expose deployment item-api -- --type=LoadBalancer --port=8082
+#Port Forward from Machine to Load Balancer
+#sudo ssh -i ~/.minikube/machines/minikube/id_rsa docker@$(sudo minikube ip) -L \*:31245:0.0.0.0:31245
