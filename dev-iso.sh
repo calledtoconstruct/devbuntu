@@ -16,10 +16,13 @@ wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add
 sudo apt update
 sudo apt -y upgrade
 
+sudo apt -y install openjdk-11-jdk
 sudo apt -y install code nodejs npm cabal-install
 sudo apt -y install libvirt-clients libvirt-daemon-system qemu-kvm docker.io
-sudo apt -y install openjdk-8-jdk google-cloud-sdk
-sudo apt -y install google-cloud-sdk-app-engine-java google-cloud-sdk-app-engine-python google-cloud-sdk-app-engine-go google-cloud-sdk-pubsub-emulator google-cloud-sdk-cbt google-cloud-sdk-cloud-build-local kubectl
+sudo apt -y install google-cloud-sdk
+sudo apt -y install google-cloud-sdk-app-engine-python google-cloud-sdk-app-engine-go google-cloud-sdk-cbt google-cloud-sdk-cloud-build-local
+
+sudo apt -y install google-cloud-sdk-app-engine-java google-cloud-sdk-pubsub-emulator 
 
 sudo snap install --classic android-studio
 
