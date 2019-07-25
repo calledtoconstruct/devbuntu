@@ -3,7 +3,7 @@ git config --global user.email joe@calledtoconstruct.net
 git config --global user.name Joseph Woolley
 sudo rsync -avx /home/ /media/ubuntu/data
 sudo umount /media/ubuntu/data
-if [ $(sudo fdisk --list | grep "52G 83 Linux" | wc -l) != 1 ]
+if [ $(sudo fdisk --list | grep "52G 83 Linux" | wc -l) = 1 ]
 then
     sudo mount $(sudo fdisk --list | grep "52G 83 Linux" | cut -c1-9) /home
 else
