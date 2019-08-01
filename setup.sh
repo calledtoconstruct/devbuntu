@@ -15,8 +15,7 @@ sudo minikube config set disk-size "20g"
 sudo minikube config set memory "4096"
 sudo minikube config set cpus "4"
 sudo usermod -a -G libvirt $(whoami)
-alias dockenv="eval \$(sudo minikube docker-env)"
-alias dockdo="sudo docker --host=\"\$DOCKER_HOST\" --tlsverify=1 --tlscacert=\"\$DOCKER_CERT_PATH/ca.pem\" --tlscert=\"\$DOCKER_CERT_PATH/cert.pem\" --tlskey=\"\$DOCKER_CERT_PATH/key.pem\""
+cat aliases >> /home/ubuntu/.bashrc
 #eval $(sudo minikube docker-env)
 #gcloud init
 #sudo minikube kubectl apply -f kube-registry.yaml
