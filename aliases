@@ -1,3 +1,4 @@
 
 alias dockenv="eval \$(sudo minikube docker-env)"
 alias dockdo="sudo docker --host=\"\$DOCKER_HOST\" --tlsverify=1 --tlscacert=\"\$DOCKER_CERT_PATH/ca.pem\" --tlscert=\"\$DOCKER_CERT_PATH/cert.pem\" --tlskey=\"\$DOCKER_CERT_PATH/key.pem\""
+alias kubedo="sudo minikube kubectl -- "
