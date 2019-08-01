@@ -16,6 +16,8 @@ wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add
 sudo apt update
 sudo apt -y upgrade
 
+sudo apt -y install python3 python3-pip
+
 sudo apt -y install openjdk-11-jdk
 sudo apt -y install code nodejs npm cabal-install
 sudo apt -y install libvirt-clients libvirt-daemon-system qemu-kvm docker.io
