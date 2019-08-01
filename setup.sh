@@ -15,7 +15,7 @@ sudo minikube config set disk-size "20g"
 sudo minikube config set memory "4096"
 sudo minikube config set cpus "4"
 sudo usermod -a -G libvirt $(whoami)
-cat aliases >> /home/ubuntu/.bashrc
+cat ./setup/aliases >> /home/ubuntu/.bashrc
 #eval $(sudo minikube docker-env)
 #gcloud init
 #sudo minikube kubectl apply -f kube-registry.yaml
