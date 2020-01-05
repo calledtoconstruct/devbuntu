@@ -25,6 +25,7 @@ These scripts are intended to be used from a [Live CD](https://help.ubuntu.com/c
 - Copy or Download Ubuntu Installation ISO Image
 - Install and Run Cubic
 ```
+sudo apt-add-repository ppa:cubic-wizard/release
 sudo apt -y install cubic
 cubic
 ```
