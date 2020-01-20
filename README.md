@@ -47,7 +47,7 @@ chmod +x ./setup/*.sh
 - Complete the Cubic Process which will produce a new ISO Image 
 - Burn the Custom Installation ISO Image to CD, USB Drive or Flash Drive
 - Repartition the Install Partition to 6G (USB Drive or Flash Drive only)
-- Create "data" Partition in Remaining Space (USB Drive or Flash Drive only)
+- Create "DATA" Partition in Remaining Space (USB Drive or Flash Drive only)
 - Reboot into Custom Live Session using BIOS Boot Device Selection
 
 # Development Environment
@@ -90,7 +90,7 @@ code
 ## Prerequisites
 
 - Working Development Environment (see above)
-- "data" Partition on USB Thumbdrive or Flash Card with at least 26G of Free Space
+- "DATA" Partition on USB Thumbdrive or Flash Card with at least 26G of Free Space
 
 ## Steps
 
