@@ -19,6 +19,7 @@ minikube config set disk-size "20g"
 minikube config set memory "4096"
 minikube config set cpus "4"
 sudo usermod -a -G libvirt $(whoami)
+sudo chown ubuntu:libvirt /var/run/libvirt
 cat ./setup/aliases >> /home/ubuntu/.bashrc
 #eval $(sudo minikube docker-env)
 #gcloud init
