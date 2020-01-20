@@ -6,14 +6,18 @@ sudo umount /media/ubuntu/data
 if [ $(sudo fdisk --list | grep "52G 83 Linux" | wc -l) = 1 ]
 then
     sudo mount $(sudo fdisk --list | grep "52G 83 Linux" | cut -c1-9) /home
-else
-    sudo mount $(sudo fdisk --list | grep "113.3G 83 Linux" | cut -c1-9) /home
+else if [ $(sudo fdisk --list | grep "113.3G 83 Linux" | wc -l) = 1 ]
+    then
+        sudo mount $(sudo fdisk --list | grep "113.3G 83 Linux" | cut -c1-9) /home
+    else
+        sudo mount $(sudo fdisk --list | grep "113.3G  b W95 FAT32" | cut -c1-9) /home
+    fi
 fi
 cd /home/ubuntu
-sudo minikube config set vm-driver kvm2
-sudo minikube config set disk-size "20g"
-sudo minikube config set memory "4096"
-sudo minikube config set cpus "4"
+minikube config set vm-driver kvm2
+minikube config set disk-size "20g"
+minikube config set memory "4096"
+minikube config set cpus "4"
 sudo usermod -a -G libvirt $(whoami)
 cat ./setup/aliases >> /home/ubuntu/.bashrc
 #eval $(sudo minikube docker-env)
