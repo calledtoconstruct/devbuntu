@@ -37,12 +37,12 @@ sudo apt -y install git
 ```
     2. Clone this repository
 ```
-git clone https://github.com/calledtoconstruct/setup
-chmod +x ./setup/*.sh
+git clone https://github.com/calledtoconstruct/devbuntu
+chmod +x ./devbuntu/*.sh
 ```
     3. Execute
 ```
-./setup/dev-iso.sh
+./devbuntu/dev-iso.sh
 ```
 - Complete the Cubic Process which will produce a new ISO Image 
 - Burn the Custom Installation ISO Image to CD, USB Drive or Flash Drive
@@ -69,12 +69,12 @@ sudo apt -y install git
 ```
 - Clone this Repository, Enable Execute of Scripts
 ```
-git clone https://github.com/calledtoconstruct/setup
-chmod +x ./setup/*.sh
+git clone https://github.com/calledtoconstruct/devbuntu
+chmod +x ./devbuntu/*.sh
 ```
 - Execute the Setup Script
 ```
-./setup/setup.sh
+./devbuntu/setup.sh
 ```
 - Change the current working folder to the new $HOME (visually, you won't see a change)
 ```
