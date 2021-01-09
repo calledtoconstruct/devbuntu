@@ -2,18 +2,17 @@ CLOUD_SDK_REPO="cloud-sdk-$(grep VERSION_CODENAME /etc/os-release | cut -d '=' -
 
 sudo apt remove --purge -y gnome-todo thunderbird* simple-scan libreoffice*
 
-sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release --short --codename) universe"
-sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-sudo add-apt-repository -y ppa:openjdk-r/ppa
-
 sudo apt -y install curl
 
-echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+wget -q https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release --short --release)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 
-wget https://packages.microsoft.com/config/ubuntu/$(lsb_release --short --release)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu $(lsb_release --short --codename) universe"
+sudo add-apt-repository -y "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo add-apt-repository -y "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main"
+sudo add-apt-repository -y ppa:openjdk-r/ppa
+
 sudo dpkg -i packages-microsoft-prod.deb
 
 sudo apt update
