@@ -2,7 +2,7 @@ CLOUD_SDK_REPO="cloud-sdk-$(grep VERSION_CODENAME /etc/os-release | cut -d '=' -
 
 sudo apt remove --purge -y gnome-todo thunderbird* simple-scan libreoffice*
 
-sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
+sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release --short --codename) universe"
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo add-apt-repository -y ppa:openjdk-r/ppa
 
@@ -13,25 +13,56 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
 
+wget https://packages.microsoft.com/config/ubuntu/$(lsb_release --short --release)/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+
 sudo apt update
 sudo apt -y upgrade
 
-sudo apt -y install python3 python3-pip
+sudo apt -y install apt-transport-https
 
-sudo apt -y install openjdk-11-jdk
-sudo apt -y install code nodejs npm cabal-install
+sudo apt -y install python3 python3-pip dotnet-sdk-5.0 openjdk-11-jdk maven build-essential nodejs npm cabal-install
+sudo apt -y install code
 sudo apt -y install libvirt-clients libvirt-daemon-system qemu-kvm docker.io
 sudo apt -y install google-cloud-sdk
 sudo apt -y install google-cloud-sdk-app-engine-python google-cloud-sdk-app-engine-go google-cloud-sdk-cbt google-cloud-sdk-cloud-build-local
 
-sudo apt -y install google-cloud-sdk-app-engine-java google-cloud-sdk-pubsub-emulator 
+sudo apt -y install google-cloud-sdk-app-engine-java google-cloud-sdk-pubsub-emulator
+
+# dev in remote machine or container
+code --install-extension ms-vscode-remote.vscode-remote-extensionpack
+code --install-extension ms-vscode-remote.remote-containers
+code --install-extension ms-vscode-remote.remote-ssh
+code --install-extension ms-vscode-remote.remote-wsl
+# git
+code --install-extension eamodio.gitlens
+# java
+code --install-extension redhat.java
+code --install-extension vscjava.vscode-java-pack
+# docker
+code --install-extension ms-azuretools.vscode-docker
+# kubernetes
+code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
+# python
+code --install-extension ms-python.python
+# typescript
+code --install-extension ms-vscode.vscode-typescript-tslint-plugin
+# haskell
+code --install-extension haskell.haskell
+code --install-extension justusadam.language-haskell
+# c#
+code --install-extension ms-dotnettools.csharp
+# c++
+code --install-extension ms-vscode.cpptools-extension-pack
+# uml
+code --install-extension jaimeolivares.yuml
 
 sudo snap install --classic android-studio
 
 sudo apt autoremove -y
 sudo apt autoclean
 
-curl -L https://github.com/kubernetes/kompose/releases/download/v1.18.0/kompose-linux-amd64 -o kompose
+curl -L https://github.com/kubernetes/kompose/releases/download/v1.22.0/kompose-linux-amd64 -o kompose
 chmod +x ./kompose
 sudo mv ./kompose /usr/local/bin/kompose
 
