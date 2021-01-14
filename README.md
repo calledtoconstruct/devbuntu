@@ -1,10 +1,10 @@
 # Development Machine Setup
 
-This repository contains a set of shell scripts that can be used on a Linux (Debian/Ubuntu) machine to install and configure various development tools and toolchains.
+This repository contains a set of shell scripts that can be used on a Linux (Debian/Ubuntu) install image to pre-configure development tools and toolchains.  Once the install image is customized, it can be used to boot a machine from a flash drive (aka thumb drive) into a live session with all tools ready to use.  It is not necessary to install Ubuntu on the machine in order to use it for software development.
 
 # Usage
 
-These scripts are intended to be used from a [Live CD](https://help.ubuntu.com/community/LiveCD), [Live USB Thumbdrive or Flash Card](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu#0).  When booting a machine from a Live CD, USB, or Flash drive, the operating system runs from a RAM Drive.  Therefore, all changes are forgotten / lost after shutdown or restart.
+These scripts are intended to be used from a [Live CD](https://help.ubuntu.com/community/LiveCD), [Live USB Thumbdrive or Flash Card](https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu#0).  When booting a machine from a Live CD, USB, or Flash drive, the operating system runs from a RAM Drive.  Therefore, all changes are forgotten / lost after shutdown or restart.  (Note: docker / minikube will require a persistent storage)
 
 # Create a Custom Live Boot Drive
 
@@ -31,16 +31,16 @@ cubic
 ```
 - Select the Installation ISO from the previous step
 - Once Cubic presents the chroot console:
-    1. Install git
+    1) Install git
 ```
 sudo apt -y install git
 ```
-    2. Clone this repository
+    2) Clone this repository
 ```
 git clone https://github.com/calledtoconstruct/devbuntu
 chmod +x ./devbuntu/*.sh
 ```
-    3. Execute
+    3) Execute
 ```
 ./devbuntu/dev-iso.sh
 ```
